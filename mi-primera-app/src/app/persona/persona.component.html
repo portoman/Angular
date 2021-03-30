@@ -1,0 +1,13 @@
+<p>
+<!--Interpolación-->
+Nombre:{{ nombre }} 
+Apellido: {{ apellido }} 
+Edad: {{ edad}}
+</p>
+
+<!--Template Reference Variable-->
+<div (keyup)='0'>
+    <label>Repetidor:</label>
+    <input #entrada/>
+    {{entrada.value}}<!--Interpolación-->
+</div>
