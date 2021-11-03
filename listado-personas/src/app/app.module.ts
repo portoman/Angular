@@ -3,12 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { PesonaComponent } from './pesona/pesona.component';
+import { PersonaComponent } from './persona/persona.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PesonaComponent
+    PersonaComponent
   ],
   imports: [
     BrowserModule,

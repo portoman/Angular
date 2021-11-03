@@ -16,10 +16,9 @@
       <button type="submit" class="btn btn-primary" (click)="agregarPersona()">Agregar</button>
     </div>
   </form>
-  <div class="row"></div>
-  <div class="col">
-    <div *ngFor="let persona of personas;let i=index">
-      {{i+1}}: {{persona.nombre}} {{persona.apellido}}
-    </div>
-  </div>
-</div>
+  <app-persona *ngFor="let personaElemento of personas;let i=index"
+  [persona]="personaElemento"
+  [indice]="i">
+
+  </app-persona>
+ 
