@@ -76,6 +76,10 @@ namespace Validacion {
     }
   }
 }
+/*
+TODO:fdfasdfsadfasdfdfdfdfdf
+
+*/
 
 let validador: Validacion.ValidadorNumero = new Validacion.validacionLongitud();
 
@@ -91,6 +95,6 @@ function compare<T>(arg1: T, arg2: T): T {
   }
 }
 
-/*Decoradores o anotaciones*/
+
 
 
