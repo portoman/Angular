@@ -1,57 +1,84 @@
 <div class="container">
-  <!-- <div class="row">
+  <h2>All code in one component</h2>
+  <div class="row">
     <div class="col-xs-12">
       <p>Add new Servers or blueprints!</p>
       <label>Server Name</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerName">
+      <input type="text" class="form-control" [(ngModel)]="newServerName01" />
       <label>Server Content</label>
-      <input type="text" class="form-control" [(ngModel)]="newServerContent">
-      <br>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="newServerContent01"
+      />
+      <br />
       <button
         class="btn btn-primary"
-        (click)="onAddServer()">Add Server</button>
+        style="margin: 1rem"
+        (click)="onAddServer()"
+      >
+        Add Server
+      </button>
       <button
         class="btn btn-primary"
-        (click)="onAddBlueprint()">Add Server Blueprint</button>
+        style="margin: 1rem"
+        (click)="onAddBlueprint()"
+      >
+        Add Server Blueprint
+      </button>
     </div>
   </div>
-  <hr>
+  <hr />
   <div class="row">
-    <div class="col-xs-12">
-      <div
-        class="panel panel-default"
-        *ngFor="let element of serverElements">
+    <div class="col-xs-12" style="display: flex">
+      <div class="panel panel-default" *ngFor="let element of serverElements01">
         <div class="panel-heading">{{ element.name }}</div>
         <div class="panel-body">
           <p>
-            <strong *ngIf="element.type === 'server'" style="color: red">{{ element.content }}</strong>
+            <strong *ngIf="element.type === 'server'" style="color: red">{{
+              element.content
+            }}</strong>
             <em *ngIf="element.type === 'blueprint'">{{ element.content }}</em>
           </p>
         </div>
+        <button (click)="onDelete(element.name)">Delete</button>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  <hr/>
+  <hr />
   <h2>Component binding</h2>
-  <hr/>
+  <hr />
+  Cadena emitida desde cockpit: {{ ejemplo }}
   <div class="container">
     <app-cockpit
+      (ejemploSimple)="cogerEvento($event)"
       (serverCreated)="onServerAdded($event)"
       (blueprintCreated)="onBlueprintAdded($event)"
     ></app-cockpit>
-    <hr>
+    <hr />
     <div class="row">
       <div class="col-xs-12">
-        <button class="btn btn-primary" (click)="onChangeFirst()">Change first Element</button>
-        <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy first Component</button>
+        <button class="btn btn-primary" (click)="onChangeFirst()">
+          Change first Element
+        </button>
+        <button class="btn btn-danger" (click)="onDestroyFirst()">
+          Destroy first Component
+        </button>
         <app-server-element
           *ngFor="let serverElement of serverElements"
           [srvElement]="serverElement"
-          [name]="serverElement.name">
+          [name]="serverElement.name"
+        >
           <p #contentParagraph>
-            <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
-            <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+            <strong
+              *ngIf="serverElement.type === 'server'"
+              style="color: red"
+              >{{ serverElement.content }}</strong
+            >
+            <em *ngIf="serverElement.type === 'blueprint'">{{
+              serverElement.content
+            }}</em>
           </p>
         </app-server-element>
       </div>

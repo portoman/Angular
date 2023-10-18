@@ -3,44 +3,61 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  // serverElements0 = [];
-  // newServerName = '';
-  // newServerContent = '';
+  serverElements01 = [];
+  newServerName01 = '';
+  newServerContent01 = '';
 
-  // onAddServer() {
-  //   this.serverElements0.push({
-  //     type: 'server',
-  //     name: this.newServerName,
-  //     content: this.newServerContent
-  //   });
-  // }
-
-  // onAddBlueprint() {
-  //   this.serverElements.push({
-  //     type: 'blueprint',
-  //     name: this.newServerName,
-  //     content: this.newServerContent
-  //   });
-  // }
-
-  serverElements = [{type: 'server', name: 'Testserver', content: 'Just a test!'}];
-
-  onServerAdded(serverData: {serverName: string, serverContent: string}) {
-    this.serverElements.push({
+  onAddServer() {
+    if (this.newServerName01 == '' || this.newServerContent01 == '') return;
+    this.serverElements01.push({
       type: 'server',
-      name: serverData.serverName,
-      content: serverData.serverContent
+      name: this.newServerName01,
+      content: this.newServerContent01,
     });
   }
 
-  onBlueprintAdded(blueprintData: {serverName: string, serverContent: string}) {
+  onAddBlueprint() {
+    if (this.newServerName01 == '' || this.newServerContent01 == '') return;
+    this.serverElements01.push({
+      type: 'blueprint',
+      name: this.newServerName01,
+      content: this.newServerContent01,
+    });
+  }
+
+  onDelete(name: string) {
+    const idx = this.serverElements01.findIndex((el) => el.name === name);
+    this.serverElements01.splice(idx, 1);
+  }
+
+  serverElements = [
+    { type: 'server', name: 'Testserver', content: 'Just a test!' },
+  ];
+
+  ejemplo: string = '';
+  cogerEvento(evento: string) {
+    this.ejemplo = evento;
+  }
+
+  onServerAdded(serverData: { serverName: string; serverContent: string }) {
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent,
+    });
+  }
+
+  onBlueprintAdded(blueprintData: {
+    serverName: string;
+    serverContent: string;
+  }) {
     this.serverElements.push({
       type: 'blueprint',
       name: blueprintData.serverName,
-      content: blueprintData.serverContent
+      content: blueprintData.serverContent,
     });
   }
 
