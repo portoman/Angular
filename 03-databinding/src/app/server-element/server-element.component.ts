@@ -13,28 +13,30 @@ import {
   OnDestroy,
   ViewChild,
   ElementRef,
-  ContentChild
+  ContentChild,
 } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
   templateUrl: './server-element.component.html',
   styleUrls: ['./server-element.component.css'],
-  encapsulation: ViewEncapsulation.Emulated // None, Native
+  encapsulation: ViewEncapsulation.Emulated, // None, Native
 })
-export class ServerElementComponent implements
-  OnInit,
-  OnChanges,
-  DoCheck,
-  AfterContentInit,
-  AfterContentChecked,
-  AfterViewInit,
-  AfterViewChecked,
-  OnDestroy {
-  @Input('srvElement') element: {type: string, name: string, content: string};
+export class ServerElementComponent
+  implements
+    OnInit,
+    OnChanges,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy
+{
+  @Input('srvElement') element: { type: string; name: string; content: string };
   @Input() name: string;
-  @ViewChild('heading', {static: true}) header: ElementRef;
-  @ContentChild('contentParagraph', {static: true}) paragraph: ElementRef;
+  @ViewChild('heading', { static: true }) header: ElementRef;
+  @ContentChild('contentParagraph', { static: true }) paragraph: ElementRef;
 
   constructor() {
     console.log('constructor called!');
@@ -44,11 +46,13 @@ export class ServerElementComponent implements
     console.log('ngOnChanges called!');
     console.log(changes);
   }
-
+  //Prueba
   ngOnInit() {
     console.log('ngOnInit called!');
     console.log('Text Content: ' + this.header.nativeElement.textContent);
-    console.log('Text Content of paragraph: ' + this.paragraph.nativeElement.textContent);
+    console.log(
+      'Text Content of paragraph: ' + this.paragraph.nativeElement.textContent
+    );
   }
 
   ngDoCheck() {
@@ -57,7 +61,9 @@ export class ServerElementComponent implements
 
   ngAfterContentInit() {
     console.log('ngAfterContentInit called!');
-    console.log('Text Content of paragraph: ' + this.paragraph.nativeElement.textContent);
+    console.log(
+      'Text Content of paragraph: ' + this.paragraph.nativeElement.textContent
+    );
   }
 
   ngAfterContentChecked() {
@@ -76,5 +82,4 @@ export class ServerElementComponent implements
   ngOnDestroy() {
     console.log('ngOnDestroy called!');
   }
-
 }
