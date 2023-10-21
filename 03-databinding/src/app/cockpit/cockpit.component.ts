@@ -27,6 +27,7 @@ export class CockpitComponent implements OnInit {
   newServerContent: string = '';
   @ViewChild('serverContentInput', { static: false })
   serverContentInput: ElementRef;
+  viewChild: string;
 
   constructor() {}
 
@@ -34,7 +35,10 @@ export class CockpitComponent implements OnInit {
   contador: number = 0;
 
   subirEjemplo() {
-    this.ejemploSimple.emit('Cadena ejemplo creada en cockpit' + this.contador++);
+    this.viewChild = this.serverContentInput.nativeElement.value;
+    this.ejemploSimple.emit(
+      'Cadena ejemplo creada en cockpit' + this.contador++
+    );
   }
 
   onAddServer() {

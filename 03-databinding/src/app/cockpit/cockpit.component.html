@@ -5,26 +5,17 @@
     <input type="text" class="form-control" [(ngModel)]="newServerName" />
     <label>Server Content</label>
     <input type="text" class="form-control" [(ngModel)]="newServerContent" />
+    <label>ViewChild()</label>
+    <input type="text" class="form-control" #serverContentInput />
+    {{viewChild}}
     <br />
-    <button
-      class="btn btn-primary"
-      style="margin: 1rem"
-      (click)="onAddServer()"
-    >
+    <button class="btn btn-primary" style="margin: 1rem" (click)="onAddServer()">
       Add Server
     </button>
-    <button
-      class="btn btn-primary"
-      style="margin: 1rem"
-      (click)="onAddBlueprint()"
-    >
+    <button class="btn btn-primary" style="margin: 1rem" (click)="onAddBlueprint()">
       Add Server Blueprint
     </button>
-    <button
-      class="btn btn-primary"
-      style="margin: 1rem"
-      (click)="subirEjemplo()"
-    >
+    <button class="btn btn-primary" style="margin: 1rem" (click)="subirEjemplo()">
       Subir ejemplo
     </button>
   </div>
